@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "fs-extra": "^11.3.0",
+    "mustache": "^4.2.0",
+    "solc": "^0.8.30"
+  },
+  "scripts": {
+    "generate": "node render_both.js",
+    "compile": "node compile_function.js && node compile_constructor.js",
+    "clean": "powershell -Command \"Remove-Item -Recurse -Force rendered, compiled; Remove-Item -Force valid_combos_constructor.json, valid_combos_function.json\""
+  }
+}

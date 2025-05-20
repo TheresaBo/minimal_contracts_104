@@ -1,0 +1,12 @@
+{
+    "compilerVersion": ["0.8.29", "0.7.6", "0.6.12", "0.5.17", "0.4.26"],
+    "variable": ["uint256 public publicVar;", null],
+    "lowLevelConstruct": ["call", "delegatecall", "staticcall", "callcode", "send"],
+    "payable": ["payable ", null],
+    "returnSuccess": ["returns (bool)", null],
+    "assignVariable": ["publicVar = 42;", null],
+    "checkSuccess": ["require(success);", "if (success) {} else { revert(\"Error\"); }", "return success;", null],
+    "payload": ["abi.encodeWithSignature(\"foo()\")", "bytes4(keccak256(\"foo()\"))", null],
+    "success": ["(bool success, ) = ", "bool success = ", null],
+    "targetContract": ["contract Target { function foo() public pure returns (bool) { return true; }}", null]
+}

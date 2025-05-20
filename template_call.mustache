@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity {{ compilerVersion }};
+
+{{#targetContract}}
+{{{ targetContract }}}
+{{/targetContract}}
+
+contract {{ contractName }} {
+
+    {{#variable}}
+    {{{ variable }}}
+    {{/variable}}
+
+    constructor() public {
+
+    }
+
+    function test(address callAddress) public {{#returnSuccess}}{{{ returnSuccess }}}{{/returnSuccess}}{
+        {{{success}}}callAddress.{{{ lowLevelConstruct }}}({{{payload}}});
+        
+        {{#checkSuccess}}
+        {{{ checkSuccess }}}
+        {{/checkSuccess}}
+
+        {{#assignVariable}}
+        {{{ assignVariable }}}
+        {{/assignVariable}}
+    }
+}
