@@ -4,6 +4,8 @@ const solc = require('solc');
 
 const versionMap = JSON.parse(fs.readFileSync('compilerVersions.json', 'utf-8'));
 
+const BASE_DIR = 'compiled/function';
+
 let results = {}
 const resultsPath = './compiled/results_function.json';
 if (fs.existsSync(resultsPath)) {
@@ -61,14 +63,25 @@ function findAllContracts(dir) {
             };
             const compilerOutput = JSON.parse(solcSnapshot.compile(JSON.stringify(compileInput)));
 
-            const outDir = path.join('compiled/function', shortVersion);
+            const outDir = path.join(BASE_DIR, shortVersion);
             fs.mkdirSync(outDir, {recursive: true});
             const outFile = path.join(outDir, contractName + '.json');
+
             fs.writeFileSync(outFile, JSON.stringify(compilerOutput, null, 2));
+
+            // save bytecode
+            const outDirBytecode = path.join(BASE_DIR, shortVersion, 'bytecode');
+            fs.mkdirSync(outDirBytecode, {recursive: true});
+            const contracts = compilerOutput.contracts[path.basename(filePath)];
+            for (const contract in contracts) {
+                const bytecode = contracts[contract].evm.bytecode.object;
+                const hexFileName = path.join(outDirBytecode, `${contract}.hex`);
+                fs.writeFileSync(hexFileName, bytecode);
+            }
 
             let resultEntry = {
                 compiled: true,
-                status: 'sucess',
+                status: 'success',
                 message: 'Compiled successfully'
             };
             
