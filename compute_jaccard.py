@@ -65,8 +65,12 @@ print("******* FLAGGED CONFUZZIUS *********")
 print(len(confuzzius_flagged))
 #print(confuzzius_flagged)
 
+
+# *************************************
 # Jaccard
 # |(A Schnitt B)| / |(A Vereinigung B)|
+# *************************************
+
 
 intersect_m_s = mythril_flagged.intersection(slither_flagged)
 union_m_s = mythril_flagged.union(slither_flagged)
@@ -79,14 +83,32 @@ print(jaccard_m_s)
 intersect_m_c = mythril_flagged.intersection(confuzzius_flagged)
 union_m_c = mythril_flagged.union(confuzzius_flagged)
 
+# does not make much sense
 jaccard_m_c = len(intersect_m_c) / len(union_m_c)
 print("********* Jaccard Mythril - Confuzzius")
 print(jaccard_m_c)
 
-
+# does not make much sense
 intersect_s_c = slither_flagged.intersection(confuzzius_flagged)
 union_s_c = slither_flagged.union(confuzzius_flagged)
 
 jaccard_s_c = len(intersect_s_c) / len(union_s_c)
 print("********* Jaccard Slither - Confuzzius")
 print(jaccard_s_c)
+
+
+
+# *************************************
+# Overlap
+# |(A Schnitt B)| / |B|
+# |(A Schnitt B)| / |A|
+# *************************************
+
+
+overlap_s_m = len(intersect_m_s) / len(slither_flagged)
+print("********* Overlap - how much Slither in Mythril")
+print(overlap_s_m)
+
+overlap_m_s = len(intersect_m_s) / len(mythril_flagged)
+print("********* Overlap - how much Mythril in Slither")
+print(overlap_m_s)
