@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity 0.8.29;
+
+contract Contract_340 {
+
+    uint256 public publicVar;
+
+    constructor(address payable recipient) public payable {
+        bool success = recipient.send(msg.value);
+        
+        if (success) {} else { revert("Error"); }
+
+        publicVar = 42;
+    }
+}
