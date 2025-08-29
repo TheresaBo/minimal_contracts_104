@@ -27,13 +27,13 @@ npm install
 node render_both.js
 ```
 
-* compiles the contracts in the ``generated`` folder, generates the folder ``compiled`` with the results
+* compiles the contracts from the ``generated`` folder, generates the folder ``compiled`` with the compiled contracts
 ```console
 node compile_function.js
 node compile_constructor.js
 ```
 
-* computes jaccard similarity and overlap: takes all vulnerable contracts from ``valid_combos_constructor.js``, ``valid_combos_function.js`` and compares it with the csv result reports from the tools placed in the ``tool_results`` folder
+* computes jaccard similarity and overlap: takes all vulnerable contracts from ``valid_combos_constructor.js``, ``valid_combos_function.js`` and compares it with the csv result reports from the tools located in the ``tool_results`` folder
 
 ```console
 python3 -m venv venv
