@@ -20,12 +20,12 @@ Install npm, node, Python 3.13
 
 * generates the folder ``generated``, its subfolders, the minimal contracts and ``valid_combos_constructor.js``, ``valid_combos_function.js``
 ```console
-npm render_both.js
+node render_both.js
 ```
 * compiles the contracts in the ``generated`` folder, generates the folder ``compiled`` with the results
 ```console
-npm compile_function.js
-npm compile_constructor.js
+node compile_function.js
+node compile_constructor.js
 ```
 
 * computes jaccard similarity and overlap: takes all vulnerable contracts from ``valid_combos_constructor.js``, ``valid_combos_function.js`` and compares it with the csv result reports from the tools placed in the ``tool_results`` folder
