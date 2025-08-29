@@ -17,11 +17,16 @@ This repository contains all scripts and result data for the practical part of t
 #### Installation and Usage
 Install npm, node, Python 3.13
 
+* Install dependencies
+```console
+npm install
+```
 
 * generates the folder ``generated``, its subfolders, the minimal contracts and ``valid_combos_constructor.js``, ``valid_combos_function.js``
 ```console
 node render_both.js
 ```
+
 * compiles the contracts in the ``generated`` folder, generates the folder ``compiled`` with the results
 ```console
 node compile_function.js
@@ -29,6 +34,11 @@ node compile_constructor.js
 ```
 
 * computes jaccard similarity and overlap: takes all vulnerable contracts from ``valid_combos_constructor.js``, ``valid_combos_function.js`` and compares it with the csv result reports from the tools placed in the ``tool_results`` folder
+
 ```console
+python3 -m venv venv
+./venv/Scripts/activate
+pip install pandas
+
 python compute_jaccard.py
 ```
