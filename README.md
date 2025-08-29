@@ -18,7 +18,7 @@ This repository contains all scripts and result data for the practical part of t
 Install npm, node, Python 3.13
 
 
-* generates the folder ``generated``, its subfolders, minimal contracts and ``valid_combos_constructor.js``, ``valid_combos_function.js``
+* generates the folder ``generated``, its subfolders, the minimal contracts and ``valid_combos_constructor.js``, ``valid_combos_function.js``
 ```console
 npm render_both.js
 ```
